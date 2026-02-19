@@ -1,0 +1,129 @@
+{
+  "id": "flashes-floaters",
+  "title": "Flashing Lights and Floaters",
+  "author": "Bhavana Sharma",
+  "keyPoints": [
+    "Floaters usually represent age related changes (liquefaction) of the vitreous",
+    "Floaters occur in 70% of the population",
+    "Acute onset flashing lights and floaters should undergo a dilated fundus examination"
+  ],
+  "redFlags": [
+    "Sudden onset of flashing lights",
+    "New onset floaters with flashing lights",
+    "Curtain or shadow in vision",
+    "Significant visual field defect"
+  ],
+  "algorithm": {
+    "start": "q1",
+    "nodes": {
+      "q1": {
+        "type": "question",
+        "text": "Is this a sudden onset of flashing lights and/or floaters?",
+        "answers": [
+          {
+            "text": "Yes - Sudden onset",
+            "next": "q2"
+          },
+          {
+            "text": "No - Gradual or chronic",
+            "next": "q6"
+          }
+        ]
+      },
+      "q2": {
+        "type": "question",
+        "text": "Are there any visual field defects or curtain-like shadows?",
+        "answers": [
+          {
+            "text": "Yes - Visual field defect present",
+            "next": "urgent1"
+          },
+          {
+            "text": "No visual field defects",
+            "next": "q3"
+          }
+        ]
+      },
+      "q3": {
+        "type": "question",
+        "text": "What is the nature of the floaters?",
+        "answers": [
+          {
+            "text": "Multiple new floaters with flashing lights",
+            "next": "q4"
+          },
+          {
+            "text": "Single or few floaters",
+            "next": "q5"
+          }
+        ]
+      },
+      "q4": {
+        "type": "question",
+        "text": "Is there any tobacco dust or pigmented cells in the vitreous?",
+        "answers": [
+          {
+            "text": "Yes - Tobacco dust present",
+            "next": "urgent2"
+          },
+          {
+            "text": "No tobacco dust",
+            "next": "dilated_exam"
+          }
+        ]
+      },
+      "q5": {
+        "type": "question",
+        "text": "Any associated symptoms (photophobia, pain, reduced vision)?",
+        "answers": [
+          {
+            "text": "Yes - Associated symptoms",
+            "next": "dilated_exam"
+          },
+          {
+            "text": "No other symptoms",
+            "next": "routine_follow"
+          }
+        ]
+      },
+      "q6": {
+        "type": "question",
+        "text": "Are the floaters interfering with daily activities?",
+        "answers": [
+          {
+            "text": "Yes - Significantly interfering",
+            "next": "specialist_referral"
+          },
+          {
+            "text": "No - Mild interference",
+            "next": "reassurance"
+          }
+        ]
+      },
+      "urgent1": {
+        "type": "outcome",
+        "text": "URGENT: Possible retinal detachment. Immediate ophthalmology referral required. Dilated fundus examination and B-scan ultrasound. Consider same-day vitreoretinal consultation."
+      },
+      "urgent2": {
+        "type": "outcome",
+        "text": "URGENT: Tobacco dust suggests retinal tear. Immediate dilated examination required. Urgent vitreoretinal referral for possible laser treatment or surgery."
+      },
+      "dilated_exam": {
+        "type": "outcome",
+        "text": "Perform dilated fundus examination. Look for retinal tears, detachment, or posterior vitreous detachment. If normal, reassure patient but arrange follow-up in 2-4 weeks."
+      },
+      "routine_follow": {
+        "type": "outcome",
+        "text": "Routine ophthalmology follow-up. Advise patient to return immediately if symptoms worsen or new visual field defects develop."
+      },
+      "specialist_referral": {
+        "type": "outcome",
+        "text": "Refer to vitreoretinal specialist for assessment. May consider vitrectomy if floaters significantly impact quality of life."
+      },
+      "reassurance": {
+        "type": "outcome",
+        "text": "Reassure patient that floaters are common age-related changes. Advise to return if sudden increase in floaters or flashing lights develop."
+      }
+    }
+  }
+}

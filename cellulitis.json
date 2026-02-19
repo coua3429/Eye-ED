@@ -1,0 +1,177 @@
+{
+  "id": "cellulitis",
+  "title": "Periorbital and Orbital Cellulitis",
+  "author": "Clinical Decision Support",
+  "keyPoints": [
+    "Distinguish between preseptal (periorbital) and orbital cellulitis",
+    "Orbital cellulitis is a sight and life-threatening emergency",
+    "CT orbits is essential if orbital involvement suspected",
+    "Urgent IV antibiotics and surgical drainage may be required"
+  ],
+  "redFlags": [
+    "Proptosis or restricted eye movements",
+    "Reduced visual acuity or visual field defects",
+    "Relative afferent pupillary defect (RAPD)",
+    "Severe systemic illness or fever",
+    "Rapid progression of swelling"
+  ],
+  "algorithm": {
+    "start": "q1",
+    "nodes": {
+      "q1": {
+        "type": "question",
+        "text": "Is there proptosis (forward displacement of the eye)?",
+        "answers": [
+          {
+            "text": "Yes - Proptosis present",
+            "next": "orbital_cellulitis"
+          },
+          {
+            "text": "No proptosis",
+            "next": "q2"
+          }
+        ]
+      },
+      "q2": {
+        "type": "question",
+        "text": "Are eye movements normal and full?",
+        "answers": [
+          {
+            "text": "Restricted or painful eye movements",
+            "next": "orbital_cellulitis"
+          },
+          {
+            "text": "Normal eye movements",
+            "next": "q3"
+          }
+        ]
+      },
+      "q3": {
+        "type": "question",
+        "text": "Is visual acuity normal?",
+        "answers": [
+          {
+            "text": "Reduced visual acuity",
+            "next": "q4"
+          },
+          {
+            "text": "Normal visual acuity",
+            "next": "q5"
+          }
+        ]
+      },
+      "q4": {
+        "type": "question",
+        "text": "Is there a relative afferent pupillary defect (RAPD)?",
+        "answers": [
+          {
+            "text": "Yes - RAPD present",
+            "next": "orbital_cellulitis"
+          },
+          {
+            "text": "No RAPD",
+            "next": "q5"
+          }
+        ]
+      },
+      "q5": {
+        "type": "question",
+        "text": "What is the extent of eyelid swelling?",
+        "answers": [
+          {
+            "text": "Severe swelling, unable to open eye",
+            "next": "q6"
+          },
+          {
+            "text": "Moderate swelling, can partially open eye",
+            "next": "q7"
+          },
+          {
+            "text": "Mild swelling, eye opens normally",
+            "next": "q8"
+          }
+        ]
+      },
+      "q6": {
+        "type": "question",
+        "text": "Any systemic symptoms (fever, malaise, nausea)?",
+        "answers": [
+          {
+            "text": "Yes - Systemic symptoms present",
+            "next": "severe_preseptal"
+          },
+          {
+            "text": "No systemic symptoms",
+            "next": "q7"
+          }
+        ]
+      },
+      "q7": {
+        "type": "question",
+        "text": "What is the patient's age and any predisposing factors?",
+        "answers": [
+          {
+            "text": "Child <5 years or immunocompromised",
+            "next": "high_risk_preseptal"
+          },
+          {
+            "text": "Healthy adult",
+            "next": "q8"
+          }
+        ]
+      },
+      "q8": {
+        "type": "question",
+        "text": "Any history of recent sinusitis or upper respiratory infection?",
+        "answers": [
+          {
+            "text": "Yes - Recent sinusitis/URTI",
+            "next": "sinusitis_related"
+          },
+          {
+            "text": "No recent illness",
+            "next": "q9"
+          }
+        ]
+      },
+      "q9": {
+        "type": "question",
+        "text": "Any history of trauma or insect bite?",
+        "answers": [
+          {
+            "text": "Yes - Trauma or insect bite",
+            "next": "trauma_related"
+          },
+          {
+            "text": "No trauma history",
+            "next": "idiopathic_cellulitis"
+          }
+        ]
+      },
+      "orbital_cellulitis": {
+        "type": "outcome",
+        "text": "ORBITAL CELLULITIS - EMERGENCY: Urgent CT orbits, IV antibiotics (ceftriaxone + metronidazole). Urgent ophthalmology and ENT referral. May need surgical drainage. Monitor for intracranial complications."
+      },
+      "severe_preseptal": {
+        "type": "outcome",
+        "text": "SEVERE PRESEPTAL CELLULITIS: Consider CT orbits to exclude orbital involvement. IV antibiotics (co-amoxiclav or ceftriaxone). Urgent ophthalmology referral. May need admission."
+      },
+      "high_risk_preseptal": {
+        "type": "outcome",
+        "text": "HIGH-RISK PRESEPTAL CELLULITIS: Low threshold for CT orbits and IV antibiotics. Urgent ophthalmology referral. Consider admission for monitoring, especially in young children."
+      },
+      "sinusitis_related": {
+        "type": "outcome",
+        "text": "SINUSITIS-RELATED CELLULITIS: Treat underlying sinusitis. Oral antibiotics (co-amoxiclav) if mild, IV if severe. ENT referral if not improving. Watch for orbital spread."
+      },
+      "trauma_related": {
+        "type": "outcome",
+        "text": "TRAUMA-RELATED CELLULITIS: Clean wound thoroughly. Tetanus prophylaxis if needed. Oral antibiotics (flucloxacillin + metronidazole). Follow-up in 24-48 hours."
+      },
+      "idiopathic_cellulitis": {
+        "type": "outcome",
+        "text": "IDIOPATHIC PRESEPTAL CELLULITIS: Oral antibiotics (flucloxacillin or co-amoxiclav). Warm compresses. Follow-up in 24-48 hours. Advise return if worsening."
+      }
+    }
+  }
+}

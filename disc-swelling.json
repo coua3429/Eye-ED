@@ -1,0 +1,161 @@
+{
+  "id": "disc-swelling",
+  "title": "One or Both Optic Discs are Swollen",
+  "author": "Tariq Mohammad",
+  "keyPoints": [
+    "Ensure baseline fundus photographs/OCT disc are taken on first presentation if available",
+    "Do not confuse a crowded disc, optic disc drusen and tilted discs with true optic disc swelling",
+    "Positive spontaneous venous pulsation does not completely rule out true disc swelling",
+    "GCA is a clinical diagnosis and a normal ESR and/or CRP doesn't rule out GCA"
+  ],
+  "redFlags": [
+    "Bilateral disc swelling (raised ICP)",
+    "Age >50 with unilateral swelling (GCA risk)",
+    "Headache with papilloedema",
+    "Progressive visual field defects",
+    "Associated neurological symptoms"
+  ],
+  "algorithm": {
+    "start": "q1",
+    "nodes": {
+      "q1": {
+        "type": "question",
+        "text": "Is the disc swelling unilateral or bilateral?",
+        "answers": [
+          {
+            "text": "Unilateral disc swelling",
+            "next": "q2"
+          },
+          {
+            "text": "Bilateral disc swelling",
+            "next": "q5"
+          }
+        ]
+      },
+      "q2": {
+        "type": "question",
+        "text": "What is the patient's age and any systemic symptoms?",
+        "answers": [
+          {
+            "text": "Age >50 with headache/jaw claudication",
+            "next": "gca_risk"
+          },
+          {
+            "text": "Age <50 or no systemic symptoms",
+            "next": "q3"
+          }
+        ]
+      },
+      "q3": {
+        "type": "question",
+        "text": "Is there a relative afferent pupillary defect (RAPD)?",
+        "answers": [
+          {
+            "text": "Yes - RAPD present",
+            "next": "q4"
+          },
+          {
+            "text": "No RAPD",
+            "next": "pseudopapilloedema_check"
+          }
+        ]
+      },
+      "q4": {
+        "type": "question",
+        "text": "Any visual field defects or reduced visual acuity?",
+        "answers": [
+          {
+            "text": "Yes - Visual field/acuity defects",
+            "next": "optic_neuritis"
+          },
+          {
+            "text": "No visual defects",
+            "next": "early_optic_neuropathy"
+          }
+        ]
+      },
+      "q5": {
+        "type": "question",
+        "text": "Any headache, nausea, or neurological symptoms?",
+        "answers": [
+          {
+            "text": "Yes - Headache and neurological symptoms",
+            "next": "q6"
+          },
+          {
+            "text": "No systemic symptoms",
+            "next": "q7"
+          }
+        ]
+      },
+      "q6": {
+        "type": "question",
+        "text": "What is the blood pressure and any papilloedema features?",
+        "answers": [
+          {
+            "text": "Hypertensive crisis (BP >180/120)",
+            "next": "malignant_hypertension"
+          },
+          {
+            "text": "Normal BP with true papilloedema",
+            "next": "raised_icp"
+          },
+          {
+            "text": "Uncertain if true swelling",
+            "next": "imaging_required"
+          }
+        ]
+      },
+      "q7": {
+        "type": "question",
+        "text": "Are there spontaneous venous pulsations visible?",
+        "answers": [
+          {
+            "text": "Yes - Venous pulsations present",
+            "next": "pseudopapilloedema_likely"
+          },
+          {
+            "text": "No venous pulsations",
+            "next": "true_swelling_likely"
+          }
+        ]
+      },
+      "gca_risk": {
+        "type": "outcome",
+        "text": "HIGH GCA RISK: Urgent ESR, CRP, FBC. If ESR >50 or high clinical suspicion, start prednisolone 80mg immediately. Urgent temporal artery biopsy within 7 days. Same-day ophthalmology referral."
+      },
+      "optic_neuritis": {
+        "type": "outcome",
+        "text": "OPTIC NEURITIS: MRI brain and orbits with gadolinium. Consider demyelinating disease workup. Urgent neurology referral. May need IV methylprednisolone if severe."
+      },
+      "early_optic_neuropathy": {
+        "type": "outcome",
+        "text": "EARLY OPTIC NEUROPATHY: Close monitoring required. Repeat visual fields in 1-2 weeks. Consider MRI if progressive. Ophthalmology follow-up."
+      },
+      "pseudopapilloedema_check": {
+        "type": "outcome",
+        "text": "POSSIBLE PSEUDOPAPILLOEDEMA: OCT optic disc to differentiate from true swelling. Look for optic disc drusen. Ophthalmology referral for assessment."
+      },
+      "malignant_hypertension": {
+        "type": "outcome",
+        "text": "MALIGNANT HYPERTENSION: Urgent BP control (target 10-15% reduction in first hour). Check for end-organ damage. Urgent medical referral. Monitor for visual changes."
+      },
+      "raised_icp": {
+        "type": "outcome",
+        "text": "RAISED INTRACRANIAL PRESSURE: Urgent CT/MRI brain. Check for space-occupying lesion, hydrocephalus. Urgent neurology/neurosurgery referral. Consider lumbar puncture if imaging normal."
+      },
+      "imaging_required": {
+        "type": "outcome",
+        "text": "IMAGING REQUIRED: CT/MRI brain to exclude mass lesion. OCT optic disc for objective measurement. Urgent ophthalmology and neurology referral."
+      },
+      "pseudopapilloedema_likely": {
+        "type": "outcome",
+        "text": "PSEUDOPAPILLOEDEMA LIKELY: OCT optic disc and B-scan to look for drusen. If confirmed pseudopapilloedema, routine ophthalmology follow-up. Reassure patient."
+      },
+      "true_swelling_likely": {
+        "type": "outcome",
+        "text": "TRUE PAPILLOEDEMA: Urgent neuroimaging and lumbar puncture if imaging normal. Check opening pressure. Urgent neurology referral for raised ICP workup."
+      }
+    }
+  }
+}

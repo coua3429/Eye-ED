@@ -1,0 +1,213 @@
+{
+  "id": "corneal-ulcers",
+  "title": "Corneal Defects, Abrasions and Foreign Bodies",
+  "author": "Magdalena Popiela",
+  "keyPoints": [
+    "Corneal abrasions are superficial losses of corneal epithelium, which heal quickly",
+    "They usually occur as result of mechanical trauma, so don't forget to look for other signs of blunt or penetrating eye injury",
+    "Fluorescein 2% is useful in diagnosis as it stains the epithelial defect",
+    "Corneal foreign bodies should be removed to allow for healing"
+  ],
+  "redFlags": [
+    "Contact lens wearer with corneal ulcer (Acanthamoeba risk)",
+    "Central corneal ulcer with hypopyon",
+    "Rapid progression of infection",
+    "Penetrating foreign body",
+    "Associated with reduced vision"
+  ],
+  "algorithm": {
+    "start": "q1",
+    "nodes": {
+      "q1": {
+        "type": "question",
+        "text": "Is there a visible foreign body on the cornea or conjunctiva?",
+        "answers": [
+          {
+            "text": "Yes - Foreign body visible",
+            "next": "q2"
+          },
+          {
+            "text": "No visible foreign body",
+            "next": "q4"
+          }
+        ]
+      },
+      "q2": {
+        "type": "question",
+        "text": "What type of foreign body and how embedded?",
+        "answers": [
+          {
+            "text": "Metallic FB, deeply embedded",
+            "next": "q3"
+          },
+          {
+            "text": "Superficial FB (dust, eyelash)",
+            "next": "superficial_fb"
+          },
+          {
+            "text": "Organic material (wood, plant)",
+            "next": "organic_fb"
+          }
+        ]
+      },
+      "q3": {
+        "type": "question",
+        "text": "Any signs of penetration (shallow anterior chamber, iris damage)?",
+        "answers": [
+          {
+            "text": "Yes - Signs of penetration",
+            "next": "penetrating_injury"
+          },
+          {
+            "text": "No penetration - embedded in cornea only",
+            "next": "embedded_fb"
+          }
+        ]
+      },
+      "q4": {
+        "type": "question",
+        "text": "Does fluorescein staining show an epithelial defect?",
+        "answers": [
+          {
+            "text": "Yes - Epithelial defect present",
+            "next": "q5"
+          },
+          {
+            "text": "No staining - intact epithelium",
+            "next": "q8"
+          }
+        ]
+      },
+      "q5": {
+        "type": "question",
+        "text": "What is the size and depth of the defect?",
+        "answers": [
+          {
+            "text": "Large abrasion (>50% corneal surface)",
+            "next": "large_abrasion"
+          },
+          {
+            "text": "Small to moderate abrasion",
+            "next": "q6"
+          },
+          {
+            "text": "Deep defect with stromal involvement",
+            "next": "q7"
+          }
+        ]
+      },
+      "q6": {
+        "type": "question",
+        "text": "Any history of contact lens wear?",
+        "answers": [
+          {
+            "text": "Yes - Contact lens wearer",
+            "next": "contact_lens_related"
+          },
+          {
+            "text": "No contact lens history",
+            "next": "simple_abrasion"
+          }
+        ]
+      },
+      "q7": {
+        "type": "question",
+        "text": "Any signs of infection (infiltrate, hypopyon, purulent discharge)?",
+        "answers": [
+          {
+            "text": "Yes - Signs of infection",
+            "next": "corneal_ulcer"
+          },
+          {
+            "text": "No infection signs",
+            "next": "sterile_ulcer"
+          }
+        ]
+      },
+      "q8": {
+        "type": "question",
+        "text": "What are the patient's symptoms?",
+        "answers": [
+          {
+            "text": "Severe pain and photophobia",
+            "next": "q9"
+          },
+          {
+            "text": "Mild discomfort or foreign body sensation",
+            "next": "minor_irritation"
+          },
+          {
+            "text": "No symptoms - incidental finding",
+            "next": "asymptomatic_finding"
+          }
+        ]
+      },
+      "q9": {
+        "type": "question",
+        "text": "Any recurrent episodes or family history?",
+        "answers": [
+          {
+            "text": "Yes - Recurrent episodes",
+            "next": "recurrent_erosion"
+          },
+          {
+            "text": "No - First episode",
+            "next": "investigate_cause"
+          }
+        ]
+      },
+      "penetrating_injury": {
+        "type": "outcome",
+        "text": "PENETRATING INJURY: Do not remove FB. Eye shield, NBM, urgent ophthalmology referral for surgical removal. Tetanus prophylaxis. IV antibiotics if high infection risk."
+      },
+      "embedded_fb": {
+        "type": "outcome",
+        "text": "EMBEDDED CORNEAL FB: Topical anaesthetic, attempt removal with needle/forceps if superficial. If unsuccessful, urgent ophthalmology referral. Topical antibiotic after removal."
+      },
+      "superficial_fb": {
+        "type": "outcome",
+        "text": "SUPERFICIAL FB: Remove with cotton bud or irrigation. Check for residual material. Topical antibiotic (chloramphenicol QDS). Follow-up in 24-48 hours."
+      },
+      "organic_fb": {
+        "type": "outcome",
+        "text": "ORGANIC FB: High infection risk. Remove if superficial, urgent ophthalmology if embedded. Intensive topical antibiotics. Close follow-up for infection."
+      },
+      "large_abrasion": {
+        "type": "outcome",
+        "text": "LARGE CORNEAL ABRASION: Topical antibiotic, cycloplegic (cyclopentolate 1%). Consider padding if very large. Daily review until healed. Watch for infection."
+      },
+      "contact_lens_related": {
+        "type": "outcome",
+        "text": "CONTACT LENS RELATED: High risk of Acanthamoeba/Pseudomonas. Stop lens wear. Corneal scraping if ulcerated. Intensive antibiotics. Urgent ophthalmology referral."
+      },
+      "simple_abrasion": {
+        "type": "outcome",
+        "text": "SIMPLE CORNEAL ABRASION: Topical antibiotic (chloramphenicol QDS), cycloplegic if painful. Usually heals in 24-48 hours. Follow-up if not improving."
+      },
+      "corneal_ulcer": {
+        "type": "outcome",
+        "text": "INFECTED CORNEAL ULCER: Corneal scraping for culture before antibiotics. Intensive topical antibiotics (hourly). Urgent ophthalmology referral. May need admission."
+      },
+      "sterile_ulcer": {
+        "type": "outcome",
+        "text": "STERILE CORNEAL ULCER: Topical antibiotics and lubricants. Investigate underlying cause (dry eye, autoimmune). Ophthalmology referral for assessment."
+      },
+      "minor_irritation": {
+        "type": "outcome",
+        "text": "MINOR IRRITATION: Artificial tears, lid hygiene. Consider dry eye syndrome. Routine follow-up if symptoms persist or worsen."
+      },
+      "asymptomatic_finding": {
+        "type": "outcome",
+        "text": "ASYMPTOMATIC FINDING: Document findings. Consider underlying pathology if unusual appearance. Routine ophthalmology referral for assessment."
+      },
+      "recurrent_erosion": {
+        "type": "outcome",
+        "text": "RECURRENT CORNEAL EROSION: Lubricating ointment at night, hypertonic saline drops. Ophthalmology referral for specialist management (may need debridement/laser)."
+      },
+      "investigate_cause": {
+        "type": "outcome",
+        "text": "INVESTIGATE UNDERLYING CAUSE: Check for dry eye, blepharitis, trichiasis. Treat underlying condition. Ophthalmology referral if recurrent or severe."
+      }
+    }
+  }
+}

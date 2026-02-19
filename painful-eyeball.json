@@ -1,0 +1,245 @@
+{
+  "id": "painful-eyeball",
+  "title": "The Painful Eyeball",
+  "author": "Alexander Kin Chiang Chiu",
+  "keyPoints": [
+    "Always check pupil response and visual acuity to give you useful clues to the diagnosis",
+    "Consider whether you need to check corneal sensation before instilling topical anaesthesia",
+    "Refrain from prescribing topical anaesthetics as a treatment from the eye casualty",
+    "Don't rely on the referring party's examination, always ask the right questions to rule out serious pathology"
+  ],
+  "redFlags": [
+    "Reduced visual acuity with pain",
+    "Abnormal pupil responses",
+    "Severe photophobia",
+    "Corneal epithelial defect",
+    "Recent eye surgery"
+  ],
+  "algorithm": {
+    "start": "q1",
+    "nodes": {
+      "q1": {
+        "type": "question",
+        "text": "What is the visual acuity?",
+        "answers": [
+          {
+            "text": "Significantly reduced visual acuity",
+            "next": "q2"
+          },
+          {
+            "text": "Normal or mildly reduced visual acuity",
+            "next": "q4"
+          }
+        ]
+      },
+      "q2": {
+        "type": "question",
+        "text": "Are the pupils normal and reactive?",
+        "answers": [
+          {
+            "text": "Abnormal pupils (fixed, dilated, or RAPD)",
+            "next": "q3"
+          },
+          {
+            "text": "Normal pupil responses",
+            "next": "q5"
+          }
+        ]
+      },
+      "q3": {
+        "type": "question",
+        "text": "What type of pupil abnormality?",
+        "answers": [
+          {
+            "text": "Fixed mid-dilated pupil with hard eye",
+            "next": "acute_glaucoma"
+          },
+          {
+            "text": "RAPD with normal IOP",
+            "next": "optic_neuropathy"
+          },
+          {
+            "text": "Small irregular pupil",
+            "next": "anterior_uveitis"
+          }
+        ]
+      },
+      "q4": {
+        "type": "question",
+        "text": "What is the nature of the pain?",
+        "answers": [
+          {
+            "text": "Severe deep aching pain",
+            "next": "q6"
+          },
+          {
+            "text": "Sharp, stabbing pain",
+            "next": "q7"
+          },
+          {
+            "text": "Gritty, foreign body sensation",
+            "next": "q8"
+          }
+        ]
+      },
+      "q5": {
+        "type": "question",
+        "text": "Any corneal involvement or anterior chamber inflammation?",
+        "answers": [
+          {
+            "text": "Corneal ulcer or infiltrate",
+            "next": "corneal_infection"
+          },
+          {
+            "text": "Anterior uveitis signs",
+            "next": "anterior_uveitis"
+          },
+          {
+            "text": "Normal anterior segment",
+            "next": "posterior_pathology"
+          }
+        ]
+      },
+      "q6": {
+        "type": "question",
+        "text": "Is the pain worse with eye movement?",
+        "answers": [
+          {
+            "text": "Yes - Pain worse with movement",
+            "next": "q9"
+          },
+          {
+            "text": "No - Constant deep pain",
+            "next": "q10"
+          }
+        ]
+      },
+      "q7": {
+        "type": "question",
+        "text": "Any history of trauma or foreign body?",
+        "answers": [
+          {
+            "text": "Yes - Trauma or FB history",
+            "next": "trauma_assessment"
+          },
+          {
+            "text": "No trauma history",
+            "next": "q11"
+          }
+        ]
+      },
+      "q8": {
+        "type": "question",
+        "text": "Any fluorescein staining of the cornea?",
+        "answers": [
+          {
+            "text": "Yes - Corneal epithelial defect",
+            "next": "corneal_abrasion"
+          },
+          {
+            "text": "No staining",
+            "next": "dry_eye_assessment"
+          }
+        ]
+      },
+      "q9": {
+        "type": "question",
+        "text": "Any proptosis or restriction of eye movements?",
+        "answers": [
+          {
+            "text": "Yes - Proptosis or restricted movement",
+            "next": "orbital_pathology"
+          },
+          {
+            "text": "No orbital signs",
+            "next": "optic_neuritis"
+          }
+        ]
+      },
+      "q10": {
+        "type": "question",
+        "text": "Is the sclera injected or does phenylephrine blanch the vessels?",
+        "answers": [
+          {
+            "text": "Deep scleral injection, no blanching",
+            "next": "scleritis"
+          },
+          {
+            "text": "Superficial injection, blanches",
+            "next": "episcleritis"
+          }
+        ]
+      },
+      "q11": {
+        "type": "question",
+        "text": "Any recent eye surgery or procedures?",
+        "answers": [
+          {
+            "text": "Yes - Recent eye surgery",
+            "next": "post_surgical_pain"
+          },
+          {
+            "text": "No recent surgery",
+            "next": "neuralgic_pain"
+          }
+        ]
+      },
+      "acute_glaucoma": {
+        "type": "outcome",
+        "text": "ACUTE ANGLE-CLOSURE GLAUCOMA: Immediate IOP lowering - topical timolol, brimonidine, pilocarpine. IV acetazolamide 500mg. Analgesia and antiemetics. Emergency ophthalmology referral."
+      },
+      "optic_neuropathy": {
+        "type": "outcome",
+        "text": "OPTIC NEUROPATHY: Urgent assessment for cause. Check for GCA if age >50. MRI brain and orbits. Urgent ophthalmology and neurology referral."
+      },
+      "anterior_uveitis": {
+        "type": "outcome",
+        "text": "ANTERIOR UVEITIS: Topical steroids (prednisolone 1% hourly) and cycloplegics (cyclopentolate 1%). Same-day ophthalmology referral. Investigate underlying cause."
+      },
+      "corneal_infection": {
+        "type": "outcome",
+        "text": "CORNEAL INFECTION: Corneal scraping for culture. Intensive topical antibiotics (hourly). Urgent ophthalmology referral. Admit if severe or poor compliance."
+      },
+      "posterior_pathology": {
+        "type": "outcome",
+        "text": "POSTERIOR PATHOLOGY: Dilated fundus examination. Consider posterior uveitis, endophthalmitis. Urgent ophthalmology referral for assessment."
+      },
+      "orbital_pathology": {
+        "type": "outcome",
+        "text": "ORBITAL PATHOLOGY: CT orbits urgently. Consider orbital cellulitis, thyroid eye disease, orbital tumor. Urgent ophthalmology referral."
+      },
+      "optic_neuritis": {
+        "type": "outcome",
+        "text": "OPTIC NEURITIS: MRI brain and orbits with gadolinium. Pain typically worse with eye movement. Urgent neurology and ophthalmology referral."
+      },
+      "scleritis": {
+        "type": "outcome",
+        "text": "SCLERITIS: Systemic NSAIDs or steroids may be needed. Investigate for underlying autoimmune disease. Urgent ophthalmology referral."
+      },
+      "episcleritis": {
+        "type": "outcome",
+        "text": "EPISCLERITIS: Topical NSAIDs or mild steroids. Usually self-limiting. Routine ophthalmology follow-up if recurrent."
+      },
+      "trauma_assessment": {
+        "type": "outcome",
+        "text": "TRAUMA ASSESSMENT: Examine for corneal foreign body, abrasion, or penetrating injury. Remove superficial FB if safe. Topical antibiotic and follow-up."
+      },
+      "corneal_abrasion": {
+        "type": "outcome",
+        "text": "CORNEAL ABRASION: Topical antibiotic, cycloplegic for comfort. Large abrasions may need padding. Follow-up in 24-48 hours."
+      },
+      "dry_eye_assessment": {
+        "type": "outcome",
+        "text": "DRY EYE SYNDROME: Artificial tears, lid hygiene. Consider underlying causes. Ophthalmology referral if severe or not responding to treatment."
+      },
+      "post_surgical_pain": {
+        "type": "outcome",
+        "text": "POST-SURGICAL PAIN: Assess for complications - endophthalmitis, wound leak, raised IOP. Urgent ophthalmology review if concerning features."
+      },
+      "neuralgic_pain": {
+        "type": "outcome",
+        "text": "NEURALGIC PAIN: Consider trigeminal neuralgia, atypical facial pain. May need neurology referral if typical neuralgic features present."
+      }
+    }
+  }
+}

@@ -1,0 +1,207 @@
+{
+  "id": "sudden-visual-loss",
+  "title": "Apparent Sudden Visual Loss: An Essential Approach",
+  "author": "Colm McAlinden",
+  "keyPoints": [
+    "Always consider giant cell arteritis as a cause of visual loss",
+    "Measure blood pressure in cases of suspected papilloedema",
+    "Always consider acanthamoeba keratitis in contact lens users",
+    "Sudden loss of vision is an ophthalmic emergency"
+  ],
+  "redFlags": [
+    "Giant cell arteritis symptoms (jaw claudication, temporal headache)",
+    "Relative afferent pupillary defect (RAPD)",
+    "Papilloedema or optic disc swelling",
+    "Central retinal artery occlusion (cherry red spot)",
+    "Retinal detachment"
+  ],
+  "algorithm": {
+    "start": "q1",
+    "nodes": {
+      "q1": {
+        "type": "question",
+        "text": "Is the visual loss painful or painless?",
+        "answers": [
+          {
+            "text": "Painful visual loss",
+            "next": "q2"
+          },
+          {
+            "text": "Painless visual loss",
+            "next": "q4"
+          }
+        ]
+      },
+      "q2": {
+        "type": "question",
+        "text": "What type of pain is present?",
+        "answers": [
+          {
+            "text": "Severe headache with jaw claudication",
+            "next": "gca_assessment"
+          },
+          {
+            "text": "Eye pain with photophobia",
+            "next": "q3"
+          },
+          {
+            "text": "Contact lens wearer with pain",
+            "next": "acanthamoeba_risk"
+          }
+        ]
+      },
+      "q3": {
+        "type": "question",
+        "text": "Are there signs of anterior uveitis or acute glaucoma?",
+        "answers": [
+          {
+            "text": "Anterior uveitis signs",
+            "next": "uveitis_management"
+          },
+          {
+            "text": "Acute glaucoma signs (hard eye, mid-dilated pupil)",
+            "next": "acute_glaucoma"
+          },
+          {
+            "text": "Neither",
+            "next": "q4"
+          }
+        ]
+      },
+      "q4": {
+        "type": "question",
+        "text": "Is there a relative afferent pupillary defect (RAPD)?",
+        "answers": [
+          {
+            "text": "Yes - RAPD present",
+            "next": "q5"
+          },
+          {
+            "text": "No RAPD",
+            "next": "q7"
+          }
+        ]
+      },
+      "q5": {
+        "type": "question",
+        "text": "What does fundoscopy reveal?",
+        "answers": [
+          {
+            "text": "Swollen optic disc",
+            "next": "q6"
+          },
+          {
+            "text": "Pale optic disc",
+            "next": "optic_neuropathy"
+          },
+          {
+            "text": "Cherry red spot at macula",
+            "next": "crao"
+          },
+          {
+            "text": "Normal fundus",
+            "next": "retrobulbar_neuritis"
+          }
+        ]
+      },
+      "q6": {
+        "type": "question",
+        "text": "Any systemic symptoms suggesting GCA (age >50, ESR >50, temporal artery tenderness)?",
+        "answers": [
+          {
+            "text": "Yes - GCA symptoms",
+            "next": "gca_urgent"
+          },
+          {
+            "text": "No GCA symptoms",
+            "next": "other_optic_neuropathy"
+          }
+        ]
+      },
+      "q7": {
+        "type": "question",
+        "text": "What pattern of visual field loss?",
+        "answers": [
+          {
+            "text": "Central scotoma",
+            "next": "macular_pathology"
+          },
+          {
+            "text": "Peripheral field defect",
+            "next": "q8"
+          },
+          {
+            "text": "Altitudinal defect",
+            "next": "vascular_occlusion"
+          }
+        ]
+      },
+      "q8": {
+        "type": "question",
+        "text": "Any flashing lights or curtain-like shadow?",
+        "answers": [
+          {
+            "text": "Yes - Flashing lights and shadow",
+            "next": "retinal_detachment"
+          },
+          {
+            "text": "No - Gradual peripheral loss",
+            "next": "glaucoma_assessment"
+          }
+        ]
+      },
+      "gca_assessment": {
+        "type": "outcome",
+        "text": "URGENT GCA ASSESSMENT: Check ESR, CRP immediately. If age >50 with typical symptoms, start prednisolone 80mg immediately. Urgent temporal artery biopsy within 7 days. Same-day ophthalmology referral."
+      },
+      "gca_urgent": {
+        "type": "outcome",
+        "text": "URGENT GCA: High-dose steroids (prednisolone 80mg or IV methylprednisolone). Urgent ESR, CRP, temporal artery biopsy. Immediate ophthalmology referral to prevent fellow eye involvement."
+      },
+      "acanthamoeba_risk": {
+        "type": "outcome",
+        "text": "ACANTHAMOEBA KERATITIS RISK: Contact lens wearer with pain and visual loss. Corneal scraping for culture. Stop contact lens wear. Urgent ophthalmology referral for specialist treatment."
+      },
+      "acute_glaucoma": {
+        "type": "outcome",
+        "text": "ACUTE ANGLE-CLOSURE GLAUCOMA: Immediate IOP lowering - topical timolol, brimonidine, pilocarpine. IV acetazolamide 500mg. Analgesia and antiemetics. Emergency ophthalmology referral."
+      },
+      "uveitis_management": {
+        "type": "outcome",
+        "text": "ANTERIOR UVEITIS: Topical steroids (prednisolone 1% hourly) and cycloplegics (cyclopentolate 1%). Same-day ophthalmology referral. Investigate underlying cause if recurrent."
+      },
+      "crao": {
+        "type": "outcome",
+        "text": "CENTRAL RETINAL ARTERY OCCLUSION: Immediate ocular massage, high-flow oxygen, IV acetazolamide. Check for embolic source (carotid doppler, echo, ESR). Urgent ophthalmology referral."
+      },
+      "retrobulbar_neuritis": {
+        "type": "outcome",
+        "text": "RETROBULBAR OPTIC NEURITIS: MRI brain and orbits with gadolinium. Consider multiple sclerosis workup. Urgent neurology and ophthalmology referral. May need IV steroids."
+      },
+      "optic_neuropathy": {
+        "type": "outcome",
+        "text": "OPTIC NEUROPATHY: Investigate cause - check B12, folate, thyroid function. MRI if compressive lesion suspected. Ophthalmology referral for further assessment."
+      },
+      "other_optic_neuropathy": {
+        "type": "outcome",
+        "text": "NON-ARTERITIC OPTIC NEUROPATHY: Check blood pressure, diabetes, sleep apnea. MRI to exclude compressive lesion. Ophthalmology follow-up for monitoring fellow eye."
+      },
+      "macular_pathology": {
+        "type": "outcome",
+        "text": "MACULAR PATHOLOGY: OCT macula, fluorescein angiography if indicated. Consider wet AMD, central serous retinopathy, macular hole. Urgent retinal referral if wet AMD suspected."
+      },
+      "retinal_detachment": {
+        "type": "outcome",
+        "text": "RETINAL DETACHMENT: Urgent vitreoretinal referral for same-day assessment. Position patient to keep detachment dependent. Emergency surgery may be required."
+      },
+      "vascular_occlusion": {
+        "type": "outcome",
+        "text": "RETINAL VASCULAR OCCLUSION: Branch or central retinal vein/artery occlusion. Check blood pressure, diabetes, cardiovascular risk factors. Urgent retinal referral."
+      },
+      "glaucoma_assessment": {
+        "type": "outcome",
+        "text": "GLAUCOMA ASSESSMENT: Check IOP, optic disc, visual fields. May be chronic glaucoma with acute presentation. Ophthalmology referral for glaucoma workup."
+      }
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "id": "double-vision",
+  "title": "Double Vision and New Onset Strabismus in an Adult",
+  "author": "Eulee Seow",
+  "keyPoints": [
+    "Check what the patient means by double vision \u2013 is it monocular or binocular?",
+    "Organise urgent imaging in pupil involving third nerve palsies or sixth nerve palsies with papilloedema",
+    "Warn patients with sudden onset double vision not to drive",
+    "Always rule out GCA"
+  ],
+  "redFlags": [
+    "Pupil-involving third nerve palsy",
+    "Sixth nerve palsy with papilloedema",
+    "Signs of giant cell arteritis",
+    "Sudden onset with neurological symptoms"
+  ],
+  "algorithm": {
+    "start": "q1",
+    "nodes": {
+      "q1": {
+        "type": "question",
+        "text": "Is the double vision monocular or binocular?",
+        "answers": [
+          {
+            "text": "Monocular (persists with one eye covered)",
+            "next": "monocular"
+          },
+          {
+            "text": "Binocular (resolves with one eye covered)",
+            "next": "q2"
+          }
+        ]
+      },
+      "q2": {
+        "type": "question",
+        "text": "What is the onset of the double vision?",
+        "answers": [
+          {
+            "text": "Sudden onset (hours to days)",
+            "next": "q3"
+          },
+          {
+            "text": "Gradual onset (weeks to months)",
+            "next": "q7"
+          }
+        ]
+      },
+      "q3": {
+        "type": "question",
+        "text": "Are there any pupil abnormalities?",
+        "answers": [
+          {
+            "text": "Dilated pupil with third nerve palsy",
+            "next": "urgent1"
+          },
+          {
+            "text": "Normal pupils",
+            "next": "q4"
+          }
+        ]
+      },
+      "q4": {
+        "type": "question",
+        "text": "Any signs of raised intracranial pressure (papilloedema, headache)?",
+        "answers": [
+          {
+            "text": "Yes - Signs of raised ICP",
+            "next": "urgent2"
+          },
+          {
+            "text": "No signs of raised ICP",
+            "next": "q5"
+          }
+        ]
+      },
+      "q5": {
+        "type": "question",
+        "text": "Any symptoms suggestive of Giant Cell Arteritis (jaw claudication, temporal headache, scalp tenderness)?",
+        "answers": [
+          {
+            "text": "Yes - GCA symptoms present",
+            "next": "gca_urgent"
+          },
+          {
+            "text": "No GCA symptoms",
+            "next": "q6"
+          }
+        ]
+      },
+      "q6": {
+        "type": "question",
+        "text": "Which cranial nerve palsy pattern is present?",
+        "answers": [
+          {
+            "text": "Third nerve palsy (pupil-sparing)",
+            "next": "diabetes_workup"
+          },
+          {
+            "text": "Fourth nerve palsy",
+            "next": "trauma_history"
+          },
+          {
+            "text": "Sixth nerve palsy",
+            "next": "sixth_nerve_workup"
+          }
+        ]
+      },
+      "q7": {
+        "type": "question",
+        "text": "Any associated systemic symptoms (fatigue, muscle weakness, ptosis variation)?",
+        "answers": [
+          {
+            "text": "Yes - Systemic symptoms",
+            "next": "myasthenia_workup"
+          },
+          {
+            "text": "No systemic symptoms",
+            "next": "thyroid_workup"
+          }
+        ]
+      },
+      "monocular": {
+        "type": "outcome",
+        "text": "Monocular diplopia: Examine for refractive errors, cataracts, corneal irregularities, or retinal pathology. Refer to ophthalmology for detailed examination."
+      },
+      "urgent1": {
+        "type": "outcome",
+        "text": "URGENT: Pupil-involving third nerve palsy. Immediate CT/MRI brain and urgent neurology referral to rule out posterior communicating artery aneurysm."
+      },
+      "urgent2": {
+        "type": "outcome",
+        "text": "URGENT: Possible raised intracranial pressure. Immediate CT brain and urgent neurology referral. Consider space-occupying lesion."
+      },
+      "gca_urgent": {
+        "type": "outcome",
+        "text": "URGENT: Possible Giant Cell Arteritis. Immediate ESR, CRP, and temporal artery biopsy. Start high-dose steroids if high suspicion. Urgent rheumatology referral."
+      },
+      "diabetes_workup": {
+        "type": "outcome",
+        "text": "Pupil-sparing third nerve palsy: Check blood glucose, HbA1c, and blood pressure. Often microvascular cause. Monitor for recovery over 3-6 months."
+      },
+      "trauma_history": {
+        "type": "outcome",
+        "text": "Fourth nerve palsy: Often related to head trauma. If no trauma history, consider imaging. May improve with time or require prism glasses."
+      },
+      "sixth_nerve_workup": {
+        "type": "outcome",
+        "text": "Sixth nerve palsy: Check for diabetes, hypertension. If isolated and no red flags, monitor for improvement. Consider MRI if no improvement in 3 months."
+      },
+      "myasthenia_workup": {
+        "type": "outcome",
+        "text": "Possible myasthenia gravis: Arrange acetylcholine receptor antibodies, Tensilon test, and neurology referral for further assessment."
+      },
+      "thyroid_workup": {
+        "type": "outcome",
+        "text": "Consider thyroid eye disease: Check thyroid function tests, consider orbital imaging if proptosis present. Ophthalmology referral."
+      }
+    }
+  }
+}

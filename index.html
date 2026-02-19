@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a1a2e">
+    <title>Eye Emergency Clinical Decision Support</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23e74c3c'/><circle cx='50' cy='50' r='20' fill='white'/><circle cx='50' cy='50' r='10' fill='%23333'/></svg>">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">
+                <span class="eye-icon">👁️</span>
+                Eye Emergency DST
+            </h1>
+            <div class="header-actions">
+                <button class="btn-icon" id="searchToggle" aria-label="Toggle search">
+                    <span class="search-icon">🔍</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+
+            <!-- Home Screen -->
+            <div id="homeScreen" class="screen active">
+
+                <!-- Search Bar -->
+                <div class="search-container" id="searchContainer">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Search algorithms..." class="search-input">
+                        <button class="search-btn" id="searchBtn">
+                            <span class="search-icon">🔍</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Favourites Section -->
+                <section class="section" id="favouritesSection">
+                    <h2 class="section-title">
+                        <span class="star-icon">⭐</span>
+                        Favourites
+                    </h2>
+                    <div class="algorithm-grid" id="favouritesList">
+                        <div class="empty-state">
+                            <p>No favourites yet. Star algorithms to add them here.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recently Used Section -->
+                <section class="section" id="recentSection">
+                    <h2 class="section-title">
+                        <span class="clock-icon">🕒</span>
+                        Recently Used
+                    </h2>
+                    <div class="algorithm-grid" id="recentList">
+                        <div class="empty-state">
+                            <p>No recent algorithms. Start using algorithms to see them here.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- All Algorithms Section -->
+                <section class="section">
+                    <h2 class="section-title">
+                        <span class="list-icon">📋</span>
+                        All Algorithms
+                    </h2>
+                    <div class="algorithm-grid" id="algorithmsList">
+                        <!-- Algorithms will be loaded here -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- Algorithm Wizard Screen -->
+            <div id="wizardScreen" class="screen">
+
+                <!-- Wizard Header -->
+                <div class="wizard-header">
+                    <button class="btn-back" id="backToHome">
+                        <span class="arrow-icon">←</span>
+                        Back
+                    </button>
+                    <h2 class="wizard-title" id="wizardTitle">Algorithm Title</h2>
+                    <div class="wizard-actions">
+                        <button class="btn-icon" id="toggleRedFlags" aria-label="Toggle red flags">
+                            <span class="warning-icon">⚠️</span>
+                        </button>
+                        <button class="btn-icon" id="toggleFavourite" aria-label="Toggle favourite">
+                            <span class="star-icon">⭐</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Red Flags Section (Collapsible) -->
+                <div class="red-flags" id="redFlagsSection">
+                    <div class="red-flags-header">
+                        <h3>⚠️ Key Points & Red Flags</h3>
+                        <button class="collapse-btn" id="collapseRedFlags">−</button>
+                    </div>
+                    <div class="red-flags-content" id="redFlagsContent">
+                        <!-- Key points and red flags will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span class="progress-text" id="progressText">Step 1 of 5</span>
+                </div>
+
+                <!-- Question Container -->
+                <div class="question-container" id="questionContainer">
+                    <div class="question-card">
+                        <h3 class="question-text" id="questionText">Loading question...</h3>
+                        <div class="answers-container" id="answersContainer">
+                            <!-- Answer buttons will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wizard Controls -->
+                <div class="wizard-controls">
+                    <button class="btn-secondary" id="undoBtn" disabled>
+                        <span class="undo-icon">↶</span>
+                        Undo
+                    </button>
+                    <button class="btn-secondary" id="restartBtn">
+                        <span class="restart-icon">🔄</span>
+                        Restart
+                    </button>
+                </div>
+
+                <!-- Outcome Screen -->
+                <div class="outcome-container" id="outcomeContainer" style="display: none;">
+                    <div class="outcome-card">
+                        <h3 class="outcome-title">Clinical Decision</h3>
+                        <div class="outcome-content" id="outcomeContent">
+                            <!-- Outcome will be displayed here -->
+                        </div>
+                        <div class="outcome-actions">
+                            <button class="btn-primary" id="copyESRBtn">
+                                <span class="copy-icon">📋</span>
+                                Copy for ESR
+                            </button>
+                            <button class="btn-secondary" id="restartFromOutcome">
+                                <span class="restart-icon">🔄</span>
+                                Start Over
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <p>Loading algorithm...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./service-worker.js').catch(() => {});
+    });
+  }
+</script>
+
+</body>
+</html>

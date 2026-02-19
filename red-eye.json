@@ -1,0 +1,205 @@
+{
+  "id": "red-eye",
+  "title": "The Red Eye Basic Algorithm",
+  "author": "Clinical Decision Support",
+  "keyPoints": [
+    "Always check visual acuity and pupil responses first",
+    "Pain and photophobia suggest serious pathology",
+    "Unilateral red eye with reduced vision needs urgent assessment",
+    "Consider infectious vs inflammatory vs traumatic causes"
+  ],
+  "redFlags": [
+    "Reduced visual acuity",
+    "Severe pain with photophobia",
+    "Pupil abnormalities",
+    "Corneal involvement",
+    "Recent eye surgery"
+  ],
+  "algorithm": {
+    "start": "q1",
+    "nodes": {
+      "q1": {
+        "type": "question",
+        "text": "Is there any reduction in visual acuity?",
+        "answers": [
+          {
+            "text": "Yes - Visual acuity reduced",
+            "next": "q2"
+          },
+          {
+            "text": "No - Visual acuity normal",
+            "next": "q6"
+          }
+        ]
+      },
+      "q2": {
+        "type": "question",
+        "text": "Is there severe pain with photophobia?",
+        "answers": [
+          {
+            "text": "Yes - Severe pain and photophobia",
+            "next": "q3"
+          },
+          {
+            "text": "No severe pain",
+            "next": "q4"
+          }
+        ]
+      },
+      "q3": {
+        "type": "question",
+        "text": "Are the pupils normal and reactive?",
+        "answers": [
+          {
+            "text": "Abnormal pupils",
+            "next": "acute_glaucoma"
+          },
+          {
+            "text": "Normal pupils",
+            "next": "anterior_uveitis"
+          }
+        ]
+      },
+      "q4": {
+        "type": "question",
+        "text": "Is there any corneal involvement (staining, opacity, foreign body)?",
+        "answers": [
+          {
+            "text": "Yes - Corneal involvement",
+            "next": "q5"
+          },
+          {
+            "text": "No corneal involvement",
+            "next": "posterior_pathology"
+          }
+        ]
+      },
+      "q5": {
+        "type": "question",
+        "text": "What type of corneal pathology is present?",
+        "answers": [
+          {
+            "text": "Corneal ulcer/infection",
+            "next": "corneal_ulcer"
+          },
+          {
+            "text": "Corneal abrasion/foreign body",
+            "next": "corneal_trauma"
+          },
+          {
+            "text": "Corneal edema",
+            "next": "corneal_edema"
+          }
+        ]
+      },
+      "q6": {
+        "type": "question",
+        "text": "Is there any pain or discomfort?",
+        "answers": [
+          {
+            "text": "Yes - Pain present",
+            "next": "q7"
+          },
+          {
+            "text": "No pain - painless red eye",
+            "next": "q9"
+          }
+        ]
+      },
+      "q7": {
+        "type": "question",
+        "text": "What is the nature of the pain?",
+        "answers": [
+          {
+            "text": "Gritty, foreign body sensation",
+            "next": "q8"
+          },
+          {
+            "text": "Deep, aching pain",
+            "next": "scleritis_episcleritis"
+          }
+        ]
+      },
+      "q8": {
+        "type": "question",
+        "text": "Is there any discharge?",
+        "answers": [
+          {
+            "text": "Purulent discharge",
+            "next": "bacterial_conjunctivitis"
+          },
+          {
+            "text": "Watery discharge",
+            "next": "viral_conjunctivitis"
+          },
+          {
+            "text": "No discharge",
+            "next": "dry_eye"
+          }
+        ]
+      },
+      "q9": {
+        "type": "question",
+        "text": "What is the pattern of redness?",
+        "answers": [
+          {
+            "text": "Localized bright red patch",
+            "next": "subconjunctival_hemorrhage"
+          },
+          {
+            "text": "Diffuse redness",
+            "next": "allergic_conjunctivitis"
+          }
+        ]
+      },
+      "acute_glaucoma": {
+        "type": "outcome",
+        "text": "URGENT: Acute angle-closure glaucoma. Immediate IOP measurement, topical and systemic pressure-lowering treatment. Emergency ophthalmology referral."
+      },
+      "anterior_uveitis": {
+        "type": "outcome",
+        "text": "URGENT: Anterior uveitis/iritis. Dilated examination required. Start topical steroids and cycloplegics. Same-day ophthalmology referral."
+      },
+      "corneal_ulcer": {
+        "type": "outcome",
+        "text": "URGENT: Corneal ulcer/infection. Take corneal scraping for culture. Start intensive topical antibiotics. Urgent ophthalmology referral."
+      },
+      "corneal_trauma": {
+        "type": "outcome",
+        "text": "Corneal abrasion/foreign body: Remove foreign body if superficial. Topical antibiotic, cycloplegic. Eye pad if large abrasion. Follow-up in 24-48 hours."
+      },
+      "corneal_edema": {
+        "type": "outcome",
+        "text": "Corneal edema: Check IOP, assess anterior chamber. May indicate glaucoma or endothelial dysfunction. Ophthalmology referral required."
+      },
+      "posterior_pathology": {
+        "type": "outcome",
+        "text": "Possible posterior segment pathology: Dilated fundus examination required. Consider retinal vascular occlusion, optic neuritis. Urgent ophthalmology referral."
+      },
+      "scleritis_episcleritis": {
+        "type": "outcome",
+        "text": "Scleritis vs Episcleritis: Phenylephrine test to differentiate. Scleritis needs systemic workup and treatment. Ophthalmology referral."
+      },
+      "bacterial_conjunctivitis": {
+        "type": "outcome",
+        "text": "Bacterial conjunctivitis: Topical antibiotic drops (chloramphenicol or fusidic acid). Hygiene advice. Review if no improvement in 48-72 hours."
+      },
+      "viral_conjunctivitis": {
+        "type": "outcome",
+        "text": "Viral conjunctivitis: Supportive treatment with lubricants. Highly contagious - isolation advice. May last 2-3 weeks. No antibiotics needed."
+      },
+      "dry_eye": {
+        "type": "outcome",
+        "text": "Dry eye syndrome: Artificial tears, lid hygiene. Avoid preservatives if severe. Consider underlying causes (medications, autoimmune). Ophthalmology referral if severe."
+      },
+      "subconjunctival_hemorrhage": {
+        "type": "outcome",
+        "text": "Subconjunctival hemorrhage: Usually benign, resolves in 1-2 weeks. Check blood pressure. If recurrent, investigate bleeding disorders."
+      },
+      "allergic_conjunctivitis": {
+        "type": "outcome",
+        "text": "Allergic conjunctivitis: Topical antihistamines, mast cell stabilizers. Identify and avoid allergens. Cool compresses for symptom relief."
+      }
+    }
+  }
+}

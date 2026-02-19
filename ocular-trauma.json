@@ -1,0 +1,153 @@
+{
+  "id": "ocular-trauma",
+  "title": "Managing Ocular Trauma",
+  "author": "Bhavin Patel",
+  "keyPoints": [
+    "Open globe injury is a sight threatening emergency",
+    "Ocular trauma is classified by the Birmingham Eye Trauma Terminology System (BETTS)",
+    "Thorough assessment is essential pre-operatively",
+    "Comprehensive documentation and explanation of risks whilst consenting patients avoids medicolegal issues"
+  ],
+  "redFlags": [
+    "Open globe injury signs (peaked pupil, soft eye, uveal prolapse)",
+    "Seidel's positive test",
+    "Intraocular foreign body (IOFB)",
+    "Significant visual acuity reduction",
+    "Penetrating injury mechanism"
+  ],
+  "algorithm": {
+    "start": "q1",
+    "nodes": {
+      "q1": {
+        "type": "question",
+        "text": "What was the mechanism of injury?",
+        "answers": [
+          {
+            "text": "Sharp/penetrating object",
+            "next": "q2"
+          },
+          {
+            "text": "Blunt trauma",
+            "next": "q3"
+          },
+          {
+            "text": "Work-related injury",
+            "next": "q4"
+          }
+        ]
+      },
+      "q2": {
+        "type": "question",
+        "text": "Are there signs of open globe injury (peaked pupil, soft eye, uveal prolapse, positive Seidel's test)?",
+        "answers": [
+          {
+            "text": "Yes - Open globe signs present",
+            "next": "open_globe"
+          },
+          {
+            "text": "No open globe signs",
+            "next": "q5"
+          }
+        ]
+      },
+      "q3": {
+        "type": "question",
+        "text": "Check for anterior segment signs: hyphema, iridodialysis, lens dislocation?",
+        "answers": [
+          {
+            "text": "Significant anterior segment trauma",
+            "next": "anterior_trauma"
+          },
+          {
+            "text": "Minimal anterior segment involvement",
+            "next": "q6"
+          }
+        ]
+      },
+      "q4": {
+        "type": "question",
+        "text": "Was the patient wearing safety goggles? Any high-velocity metal fragments?",
+        "answers": [
+          {
+            "text": "No safety equipment - high risk IOFB",
+            "next": "iofb_risk"
+          },
+          {
+            "text": "Safety equipment worn",
+            "next": "q5"
+          }
+        ]
+      },
+      "q5": {
+        "type": "question",
+        "text": "What is the visual acuity and pupil response?",
+        "answers": [
+          {
+            "text": "Significant VA reduction or RAPD",
+            "next": "q7"
+          },
+          {
+            "text": "Normal VA and pupils",
+            "next": "minor_trauma"
+          }
+        ]
+      },
+      "q6": {
+        "type": "question",
+        "text": "Any posterior segment involvement (vitreous hemorrhage, retinal detachment)?",
+        "answers": [
+          {
+            "text": "Yes - Posterior segment trauma",
+            "next": "posterior_trauma"
+          },
+          {
+            "text": "No posterior involvement",
+            "next": "q5"
+          }
+        ]
+      },
+      "q7": {
+        "type": "question",
+        "text": "Any signs of orbital involvement (proptosis, reduced eye movements, orbital fracture)?",
+        "answers": [
+          {
+            "text": "Yes - Orbital involvement",
+            "next": "orbital_trauma"
+          },
+          {
+            "text": "No orbital signs",
+            "next": "globe_assessment"
+          }
+        ]
+      },
+      "open_globe": {
+        "type": "outcome",
+        "text": "URGENT OPEN GLOBE: NBM, bed rest, eye shield. Inform consultant immediately. IV access, FBC/U&E. Consent for GA primary repair. IV antibiotics (vancomycin 1g 12 hourly + ceftazidime 1g 8 hourly). Analgesia and antiemetics. Tetanus prophylaxis if indicated."
+      },
+      "iofb_risk": {
+        "type": "outcome",
+        "text": "HIGH RISK IOFB: Non-contrast CT orbit immediately. Look for metallic foreign body. If IOFB confirmed, treat as open globe. Urgent ophthalmology referral."
+      },
+      "anterior_trauma": {
+        "type": "outcome",
+        "text": "ANTERIOR SEGMENT TRAUMA: Detailed slit lamp examination. Manage hyphema with head elevation, cycloplegics. Monitor IOP. Ophthalmology referral within 24 hours."
+      },
+      "posterior_trauma": {
+        "type": "outcome",
+        "text": "POSTERIOR SEGMENT TRAUMA: Urgent vitreoretinal referral. B-scan ultrasound if view obscured. Consider commotio retinae, choroidal rupture, retinal detachment."
+      },
+      "orbital_trauma": {
+        "type": "outcome",
+        "text": "ORBITAL TRAUMA: CT orbits with coronal views. Check for orbital fractures, muscle entrapment. Urgent ophthalmology and maxillofacial referral if indicated."
+      },
+      "globe_assessment": {
+        "type": "outcome",
+        "text": "CLOSED GLOBE INJURY: Thorough examination for occult rupture. Monitor closely. Ophthalmology review. Document thoroughly for medicolegal purposes."
+      },
+      "minor_trauma": {
+        "type": "outcome",
+        "text": "MINOR TRAUMA: Superficial injury. Topical antibiotic if corneal abrasion. Safety advice. Routine follow-up if symptoms persist."
+      }
+    }
+  }
+}
