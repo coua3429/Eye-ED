@@ -1,0 +1,263 @@
+{
+  "algorithms": [
+    {
+      "order": 1,
+      "id": "red-eye",
+      "title": "Red eye",
+      "path": "data/algorithms/red-eye.json",
+      "tags": [
+        "red",
+        "eye"
+      ]
+    },
+    {
+      "order": 2,
+      "id": "cellulitis",
+      "title": "Lid swelling / cellulitis",
+      "path": "data/algorithms/cellulitis.json",
+      "tags": [
+        "lid",
+        "swelling",
+        "cellulitis"
+      ]
+    },
+    {
+      "order": 3,
+      "id": "watery-eye",
+      "title": "Watery eye",
+      "path": "data/algorithms/watery-eye.json",
+      "tags": [
+        "watery",
+        "eye"
+      ]
+    },
+    {
+      "order": 4,
+      "id": "eyelid-trauma",
+      "title": "Eyelid trauma",
+      "path": "data/algorithms/eyelid-trauma.json",
+      "tags": [
+        "eyelid",
+        "trauma"
+      ]
+    },
+    {
+      "order": 5,
+      "id": "corneal-ulcers",
+      "title": "Corneal defects / abrasions / FB",
+      "path": "data/algorithms/corneal-ulcers.json",
+      "tags": [
+        "corneal",
+        "defects",
+        "abrasions",
+        "fb"
+      ]
+    },
+    {
+      "order": 6,
+      "id": "contact-lens-keratitis",
+      "title": "Contact lens keratitis",
+      "path": "data/algorithms/contact-lens-keratitis.json",
+      "tags": [
+        "contact",
+        "lens",
+        "keratitis"
+      ]
+    },
+    {
+      "order": 7,
+      "id": "photophobia",
+      "title": "Photophobia",
+      "path": "data/algorithms/photophobia.json",
+      "tags": [
+        "photophobia"
+      ]
+    },
+    {
+      "order": 8,
+      "id": "post-op-red-eye",
+      "title": "Post-op red eye",
+      "path": "data/algorithms/post-op-red-eye.json",
+      "tags": [
+        "post-op",
+        "red",
+        "eye"
+      ]
+    },
+    {
+      "order": 9,
+      "id": "sudden-visual-loss",
+      "title": "Sudden visual loss",
+      "path": "data/algorithms/sudden-visual-loss.json",
+      "tags": [
+        "sudden",
+        "visual",
+        "loss"
+      ]
+    },
+    {
+      "order": 10,
+      "id": "flashes-floaters",
+      "title": "Flashes / floaters",
+      "path": "data/algorithms/flashes-floaters.json",
+      "tags": [
+        "flashes",
+        "floaters"
+      ]
+    },
+    {
+      "order": 11,
+      "id": "new-haemorrhage",
+      "title": "New haemorrhage",
+      "path": "data/algorithms/new-haemorrhage.json",
+      "tags": [
+        "new",
+        "haemorrhage"
+      ]
+    },
+    {
+      "order": 12,
+      "id": "abnormal-fundus",
+      "title": "Abnormal fundus finding",
+      "path": "data/algorithms/abnormal-fundus.json",
+      "tags": [
+        "abnormal",
+        "fundus",
+        "finding"
+      ]
+    },
+    {
+      "order": 13,
+      "id": "wavy-lines",
+      "title": "Wavy lines / distortion",
+      "path": "data/algorithms/wavy-lines.json",
+      "tags": [
+        "wavy",
+        "lines",
+        "distortion"
+      ]
+    },
+    {
+      "order": 14,
+      "id": "vitritis",
+      "title": "Vitritis",
+      "path": "data/algorithms/vitritis.json",
+      "tags": [
+        "vitritis"
+      ]
+    },
+    {
+      "order": 15,
+      "id": "painful-eyeball",
+      "title": "Painful eyeball",
+      "path": "data/algorithms/painful-eyeball.json",
+      "tags": [
+        "painful",
+        "eyeball"
+      ]
+    },
+    {
+      "order": 16,
+      "id": "retinal-tear-rd",
+      "title": "Retinal tear / detachment",
+      "path": "data/algorithms/retinal-tear-rd.json",
+      "tags": [
+        "retinal",
+        "tear",
+        "detachment"
+      ]
+    },
+    {
+      "order": 17,
+      "id": "proptosis",
+      "title": "Proptosis",
+      "path": "data/algorithms/proptosis.json",
+      "tags": [
+        "proptosis"
+      ]
+    },
+    {
+      "order": 18,
+      "id": "double-vision",
+      "title": "Double vision",
+      "path": "data/algorithms/double-vision.json",
+      "tags": [
+        "double",
+        "vision"
+      ]
+    },
+    {
+      "order": 19,
+      "id": "white-pupil",
+      "title": "White pupil",
+      "path": "data/algorithms/white-pupil.json",
+      "tags": [
+        "white",
+        "pupil"
+      ]
+    },
+    {
+      "order": 20,
+      "id": "nai",
+      "title": "NAI",
+      "path": "data/algorithms/nai.json",
+      "tags": [
+        "nai"
+      ]
+    },
+    {
+      "order": 21,
+      "id": "disc-swelling",
+      "title": "Optic disc swelling",
+      "path": "data/algorithms/disc-swelling.json",
+      "tags": [
+        "optic",
+        "disc",
+        "swelling"
+      ]
+    },
+    {
+      "order": 22,
+      "id": "headache",
+      "title": "Headache",
+      "path": "data/algorithms/headache.json",
+      "tags": [
+        "headache"
+      ]
+    },
+    {
+      "order": 23,
+      "id": "ocular-trauma",
+      "title": "Ocular trauma",
+      "path": "data/algorithms/ocular-trauma.json",
+      "tags": [
+        "ocular",
+        "trauma"
+      ]
+    },
+    {
+      "order": 24,
+      "id": "temple-pain",
+      "title": "Temple pain / possible GCA",
+      "path": "data/algorithms/temple-pain.json",
+      "tags": [
+        "temple",
+        "pain",
+        "possible",
+        "gca"
+      ]
+    },
+    {
+      "order": 25,
+      "id": "normal-exam",
+      "title": "Symptoms but normal exam",
+      "path": "data/algorithms/normal-exam.json",
+      "tags": [
+        "symptoms",
+        "but",
+        "normal",
+        "exam"
+      ]
+    }
+  ]
+}
